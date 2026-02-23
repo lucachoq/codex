@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Stealthy AI Proofreader</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Stealthy AI Proofreader</h1>
+      <p class="hint">Select text in any editable field, then click <strong>Fix Selection</strong>.</p>
+
+      <label>
+        Provider
+        <select id="provider">
+          <option value="openai">OpenAI (ChatGPT API)</option>
+          <option value="gemini">Google Gemini API</option>
+        </select>
+      </label>
+
+      <label>
+        API key
+        <input id="apiKey" type="password" placeholder="Paste API key" autocomplete="off" />
+      </label>
+
+      <label>
+        Model
+        <input id="model" type="text" placeholder="e.g. gpt-4o-mini / gemini-1.5-flash" />
+      </label>
+
+      <label>
+        Delay between edits (ms)
+        <input id="delayMs" type="number" min="30" max="3000" step="10" />
+      </label>
+
+      <div class="row">
+        <button id="saveBtn" type="button">Save settings</button>
+        <button id="fixBtn" type="button" class="primary">Fix Selection</button>
+      </div>
+
+      <p id="status" role="status" aria-live="polite"></p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

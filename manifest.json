@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Stealthy AI Proofreader",
+  "description": "Fix grammar, spelling, and punctuation in selected text with AI, one incremental edit at a time.",
+  "version": "1.0.0",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://api.openai.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Stealthy AI Proofreader",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
